@@ -9,18 +9,16 @@
 		<div class="video-container">
 			<div class="filter"></div>
 			<video autoplay loop class="full-w" muted>
-				<source src="{% static 'videos/myview3.mp4' %}" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
-				<source src="{% static 'videos/myview3.webm' %}" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+				<source src="{% static 'videos/mytrip.mp4' %}" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+				<source src="{% static 'videos/mytrip.webm' %}" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
 			</video>
 		</div>
 		<div class="flex-column min-full-size justify-center">
 			<h1 class="title big">{{ content.titulo }}</h1>
 			<p class="subtitle">{{ content.subtitulo }}</p>
 			<div class="flex top-icons">
-				<a target="_blank" href="https://www.facebook.com/myviewdrones/"><i class="o-icon-button fa fa-facebook"></i></a>
-				<a target="_blank" href="https://www.instagram.com/myviewbr/"><i class="o-icon-button fa fa-instagram"></i></a>
-				<a target="_blank" href="https://vimeo.com/user51265724"><i class="o-icon-button fa fa-vimeo"></i></a>
-				<a target="_blank" href="https://www.youtube.com/channel/UC1JyE1jSGskez0KXZax8wLg"><i class="o-icon-button fa fa-youtube-play"></i></a>
+				<a target="_blank" href="https://www.facebook.com/mytripviagens.rj/"><i class="o-icon-button fa fa-facebook"></i></a>
+				<a target="_blank" href="https://www.instagram.com/my_trip/"><i class="o-icon-button fa fa-instagram"></i></a>
 			</div>
 			<a href="{% url 'contact' %}" class="o-button-reverse">Contato</a>
 		</div>
@@ -32,10 +30,6 @@
 		<div class="description-content">
 			<h4 class="subtitle">{{ content.subtitulo_quem_somos }}</h4>
 			<p style="white-space:pre-wrap;color:black;" class="light-text">{{ content.texto_quem_somos }}</p>
-			<div class="flex">
-				<img height="80" src="{% static 'img/cert1.png' %}" alt="certificado 1">
-				<img height="80" src="{% static 'img/cert2.png' %}" alt="certificado 2">
-			</div>
 		</div>
 	</div>
 	{% if services %}
@@ -49,66 +43,6 @@
 					<img src="{{ media_prefix }}{{ s.icon }}" alt="{{ s.name }}">
 					<span class="dark-label">{{ s.name }}</span>
 					<p class="light-text">{{ s.description_home }}</p>
-				</div>
-			{% endfor %}
-		</div>
-	{% endif %}
-	{% if solutions %}
-        <div class="flex justify-center bg-light section-title_container">
-            <h2 class="title dark text-center">{{ content.titulo_solucoes }}</h2>
-        </div>
-        <div class="flex-column full-w bg-light">
-            {% for s in solutions %}
-                <div class="flex special-service full-w">
-                    <div class="special-service_img">
-                        <div class="special-service_overlay"></div>
-                        <img src="{{ media_prefix }}{{ s.photo }}" alt="{{ s.name }}">
-                    </div>
-                    <div class="flex-column start special-service_content">
-                        <span class="dark-label big">{{ s.name }}</span>
-                        <br>
-                        <div style="width:30px;height:4px;background:#5bd7c5;margin-bottom:34px;"></div>
-                        <ul>
-                            <li style="white-space:pre-wrap;" class="light-text">{{ s.description }}</li>
-                        </ul>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    {% endif %}
-	{% if projects %}
-		<div class="flex justify-center section-title_container">
-			<h2 class="title dark text-center">{{ content.titulo_projetos }}</h2>
-		</div>
-		<div class="flex-column full-w">
-			{% for p in projects %}
-				<div class="project-container full-w">
-					<div class="project_big img-container">
-						<img src="{{ media_prefix }}{{ p.photos.all.0.photo }}" alt="">
-					</div>
-					<div class="flex-column project_small">
-						<div class="full-w img-container">
-							<div class="project_small-overlay flex justify-center">
-								<div class="flex">
-									{% if p.vimeo %}
-										<a href="" data-id="{{ p.vimeo }}" class="button-square start-video">Ampliar</a>
-									{% else %}
-										<a href="" data-src="{{ p.photos.all.1.photo }}" class="button-square start-photo">Ampliar</a>
-									{% endif %}
-									<a href="{% url 'project' p.id %}" class="button-square">Info</a>
-								</div>
-							</div>
-							<img src="{{ media_prefix }}{{ p.photos.all.1.photo }}" alt="">
-						</div>
-						<div class="flex-column start full-w project_description">
-							<span class="dark-label">{{ p.name }}</span>
-							{% if p.short_description %}
-								<p class="light-text">{{ p.short_description }}</p>
-							{% else %}
-								<p class="light-text">{{ p.description|truncatechars:255 }}</p>
-							{% endif %}
-						</div>
-					</div>
 				</div>
 			{% endfor %}
 		</div>

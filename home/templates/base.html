@@ -7,7 +7,7 @@
         
         <!--[if lte IE 9]>
                 <![endif]-->
-        <title>{% block title %}MyView{% endblock %}</title>
+        <title>{% block title %}MyTrip{% endblock %}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400|Montserrat:300,400" rel="stylesheet">
         {% load static %}
@@ -23,9 +23,6 @@
                 <div class="header-nav">
                     <ul class="header-nav_items flex">
                         <a href="{% url 'home' %}"><li>Home</li></a>
-                        <a href="{% url 'services' %}"><li>Soluções e Serviços</li></a>
-                        <a href="{% url 'projects' %}"><li>Portfólio</li></a>
-                        <a href="{% url 'courses' %}"><li>MyView Academy</li></a>     
                         <a href="{% url 'contact' %}"><li>Contato</li></a>
                     </ul>
                     <span id="mobile-menu" class="fa fa-bars"></span>
@@ -33,9 +30,6 @@
             </div>
             <ul class="header-nav_mobile-items flex-column">
                 <a href="{% url 'home' %}"><li>Home</li></a>
-                <a href="{% url 'services' %}"><li>Soluções e Serviços</li></a>
-                <a href="{% url 'projects' %}"><li>Portfólio</li></a>
-                <a href="{% url 'courses' %}"><li>MyView Academy</li></a>
                 <a href="{% url 'contact' %}"><li>Contato</li></a>
             </ul>
         </header>
@@ -45,13 +39,9 @@
         <div class="pre-footer flex start full-w">
             <div class="pre-footer_item flex-column start">
                 <div class="footer-logo">
-                    <a href="{% url 'home' %}"><img src="{% static 'img/logo-white.png' %}" alt=""></a>
+                    <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
                 </div>
                 <p class="light-text white footer-logo_text">{{ content.descricao_rodape }}</p>
-                <div class="flex">
-                    <img height="60" src="{% static 'img/cert1.png' %}" alt="certificado 1">
-                    <img height="60" src="{% static 'img/cert2.png' %}" alt="certificado 2">
-                </div>
             </div>
             <div class="pre-footer_item flex-column start">
             </div>
@@ -64,7 +54,7 @@
             </div>
             {% load instagram_client %}
 
-            {% instagram_user_recent_media myviewbr %}
+            {% instagram_user_recent_media my_trip %}
             <div class="pre-footer_item flex-column start">
                 <span class="light-label pre-footer_item_title">Instagram</span>
                 <div class="pre-footer_item_instagram_container full-w flex">
@@ -81,7 +71,7 @@
             </div>
         </div>
         <footer class="footer flex justify-center white">
-            <span class="detail-text">Copyright © 2017 MyView</span>
+            <span class="detail-text">Copyright © 2017 MyTrip by Solid</span>
         </footer>
     </body>
 </html>

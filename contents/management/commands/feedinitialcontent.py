@@ -8,7 +8,7 @@ class Command(BaseCommand):
         home = Page(name='Home', user_id=1)
         home.save()
 
-        c = Content(key='Titulo', page=home, text='Soluções Com Drones', user_id=1)
+        c = Content(key='Titulo', page=home, text='Título Aqui', user_id=1)
         c.save()
 
         c = Content(key='Subtitulo', page=home, text='Lorem ipsum dolor sit amet, consectetur adipisicing elit.', user_id=1)
@@ -26,25 +26,28 @@ class Command(BaseCommand):
         c = Content(key='Titulo servicos', page=home, text='Nossos Serviços', user_id=1)
         c.save()
         
-        c = Content(key='Titulo projetos', page=home, text='Projetos Recentes', user_id=1)
-        c.save()
-
         c = Content(key='Titulo depoimentos', page=home, text='Nossos Clientes', user_id=1)
         c.save()
 
-        c = Content(key='Titulo contato', page=home, text='Contato', user_id=1)
+        c = Content(key='Label newsletter', page=home, text='Newsletter', user_id=1)
+        c.save()
+        
+        contact = Page(name='Contato', user_id=1)
+        contact.save()
+
+        c = Content(key='Titulo contato', page=contact, text='Contato', user_id=1)
         c.save()
 
-        c = Content(key='Texto contato', page=home, text='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique nobis aspernatur accusamus cum repellendus inventore cupiditate adipisci dolor, fugiat nemo necessitatibus ducimus! Fugit dolorem atque nemo quisquam veritatis modi excepturi?', user_id=1)
+        c = Content(key='Texto contato', page=contact, text='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique nobis aspernatur accusamus cum repellendus inventore cupiditate adipisci dolor, fugiat nemo necessitatibus ducimus! Fugit dolorem atque nemo quisquam veritatis modi excepturi?', user_id=1)
         c.save()
 
-        c = Content(key='Endereco contato', page=home, text='Av das Américas 8888, Rio de Janeiro, Brasil', user_id=1)
+        c = Content(key='Endereco contato', page=contact, text='Av das Américas 8888, Rio de Janeiro, Brasil', user_id=1)
         c.save()
 
-        c = Content(key='Telefone', page=home, text='+5521888552014', user_id=1)
+        c = Content(key='Telefone', page=contact, text='+5521888552014', user_id=1)
         c.save()
 
-        c = Content(key='Email', page=home, text='info@thememove.com', user_id=1)
+        c = Content(key='Email', page=contact, text='info@thememove.com', user_id=1)
         c.save()
 
         footer = Page(name='Rodape', user_id=1)
@@ -53,11 +56,6 @@ class Command(BaseCommand):
         c = Content(key='Descricao rodape', page=footer, text='Lorem ipsum dolor sit amet, consect etur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.', user_id=1)
         c.save()
 
-        courses = Page(name='Cursos', user_id=1)
-        courses.save()
-
-        c = Content(key='Titulo cursos', page=footer, text='Venha aprender com a MyView', user_id=1)
+        c = Content(key='Titulo contato rodape', page=footer, text='Tire suas dúvidas', user_id=1)
         c.save()
 
-        c = Content(key='Descricao pagina cursos', page=footer, text='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis tenetur ab cumque maiores est et ullam, totam harum esse impedit accusantium nihil voluptas eligendi? Nulla dolor similique delectus modi minima.', user_id=1)
-        c.save()
