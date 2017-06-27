@@ -5,13 +5,25 @@
 {% block content %}
     {% load static %}   
     {% get_media_prefix as media_prefix %}
-    <div class="flex-column justify-center courses-top triangles" style="background-image:url({{ media_prefix }}{{ service.photo }});"></div>
-    <div class="flex-column justify-center section-title_container courses-title">
+    <div class="flex-column justify-center service-page-top triangles" style="background-image:url({{ media_prefix }}{{ service.photo }});"></div>
+    <div class="flex-column justify-center section-title_container service-page-title">
         <h2 class="title dark text-center">{{ service.name }}</h2>
         <span class="text-center light-text">{{ service.description_home }}</span>
     </div>
-    <div class="courses-content flex-column start full-w">
-        
+    <div class="flex start full-w wrap pad">
+        <div class="service-page-content flex-column start">
+            <span class="dark-label margin-b">{{ content.descricao_servicos }}</span>
+            <span style="white-space:pre-wrap;" class="light-text">{{ service.description }}</span>
+        </div>
+        <div class="service-page-content flex-column start contact-form">
+            <div class="flex half-form_container full-w">
+                <input type="text" placeholder="Nome" name="name" class="half-form">
+                <input type="text" placeholder="Telefone" name="phone" class="half-form">
+            </div>
+            <input type="text" placeholder="email" name="Email">
+            <textarea name="message" placeholder="Mensagem" id="" cols="30" rows="5"></textarea>
+            <button class="button">Enviar</button>
+        </div>
     </div>
     <br>
     <br>

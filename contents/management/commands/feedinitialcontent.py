@@ -59,3 +59,10 @@ class Command(BaseCommand):
         c = Content(key='Titulo contato rodape', page=footer, text='Tire suas dúvidas', user_id=1)
         c.save()
 
+        services = Page(name='Servicos', user_id=1)
+        services.save()
+
+        c = Content(key='Descricao servicos', page=footer, text='O que fazemos', user_id=1)
+        c.save()
+
+
