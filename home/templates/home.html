@@ -39,11 +39,13 @@
 		</div>
 		<div class="flex full-w service-item_container">
 			{% for s in services %}
-				<div class="flex-column service-item">
-					<img src="{{ media_prefix }}{{ s.icon }}" alt="{{ s.name }}">
-					<span class="dark-label">{{ s.name }}</span>
-					<p class="light-text">{{ s.description_home }}</p>
-				</div>
+				{% if forloop.counter < 4 %}
+					<div class="flex-column service-item">
+						<img src="{{ media_prefix }}{{ s.icon }}" alt="{{ s.name }}">
+						<a href="{% url 'service' s.uri %}"><span class="dark-label">{{ s.name }}</span></a>
+						<p class="light-text">{{ s.description_home }}</p>
+					</div>
+				{% endif %}
 			{% endfor %}
 		</div>
 	{% endif %}

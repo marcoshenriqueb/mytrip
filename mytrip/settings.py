@@ -33,7 +33,6 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'home',
     'services',
-    'courses',
     'contents',
     'clients',
     'sorl.thumbnail',

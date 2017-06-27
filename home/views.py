@@ -1,8 +1,7 @@
 from django.views.generic.base import TemplateView
 from contents.models import Content
 from clients.models import Client
-# from courses.models import Course
-# from services.models import Service
+from services.models import Service
 
 class HomePageView(TemplateView):
     template_name = "home.html"
@@ -10,7 +9,7 @@ class HomePageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(HomePageView, self).get_context_data(**kwargs)
         context['clients'] = Client.objects.all()
-        # context['services'] = Service.objects.all()
+        context['services'] = Service.objects.all()
         content = {}
         for c in Content.objects.all():
             content[c.key.lower().replace(" ", "_")] = c.text
@@ -18,17 +17,18 @@ class HomePageView(TemplateView):
         return context
 
 
-# class CoursesPageView(TemplateView):
-#     template_name = "courses.html"
+class ServicePageView(TemplateView):
+    template_name = "service.html"
 
-#     def get_context_data(self, **kwargs):
-#         context = super(CoursesPageView, self).get_context_data(**kwargs)
-#         context['courses'] = Course.objects.all()
-#         content = {}
-#         for c in Content.objects.all():
-#             content[c.key.lower().replace(" ", "_")] = c.text
-#         context['content'] = content
-#         return context
+    def get_context_data(self, **kwargs):
+        context = super(ServicePageView, self).get_context_data(**kwargs)
+        context['services'] = Service.objects.all()
+        context['service'] = Service.objects.filter(uri=kwargs['uri']).first()
+        content = {}
+        for c in Content.objects.all():
+            content[c.key.lower().replace(" ", "_")] = c.text
+        context['content'] = content
+        return context
 
 
 class ContactPageView(TemplateView):
@@ -36,6 +36,7 @@ class ContactPageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ContactPageView, self).get_context_data(**kwargs)
+        context['services'] = Service.objects.all()
         content = {}
         for c in Content.objects.all():
             content[c.key.lower().replace(" ", "_")] = c.text

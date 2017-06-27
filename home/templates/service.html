@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+    MyView - Projetos
+{% endblock %}
+{% block content %}
+    {% load static %}   
+    {% get_media_prefix as media_prefix %}
+    <div class="flex-column justify-center courses-top triangles" style="background-image:url({{ media_prefix }}{{ service.photo }});"></div>
+    <div class="flex-column justify-center section-title_container courses-title">
+        <h2 class="title dark text-center">{{ service.name }}</h2>
+        <span class="text-center light-text">{{ service.description_home }}</span>
+    </div>
+    <div class="courses-content flex-column start full-w">
+        
+    </div>
+    <br>
+    <br>
+    <br>
+{% endblock %}
