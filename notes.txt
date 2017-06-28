@@ -1,11 +1,6 @@
-- Rede de pilotos
-- Colocar video na página de projeto.
-- Lead newsletter site contato@myview.com
-- Video de capa diminuir o tamanho
+Formulários diferentes para cada serviço
+Formulário 12 colunas
+Perguntas frequentes
 
-Safari problema na pagina de portfolio
-
-
-Cadastrar
-- dois serviços e duas soluções
-- titulo serviços especiais
+Ultima pagina eh o corporativo e link para a solid
+Formulario de contato
