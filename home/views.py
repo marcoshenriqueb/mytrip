@@ -31,11 +31,11 @@ class ServicePageView(TemplateView):
         return context
 
 
-class ContactPageView(TemplateView):
-    template_name = "contact.html"
+class CorporateView(TemplateView):
+    template_name = "corp.html"
 
     def get_context_data(self, **kwargs):
-        context = super(ContactPageView, self).get_context_data(**kwargs)
+        context = super(CorporateView, self).get_context_data(**kwargs)
         context['services'] = Service.objects.all()
         content = {}
         for c in Content.objects.all():

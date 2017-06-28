@@ -28,7 +28,7 @@
                                 <a href="{% url 'service' s.uri %}"><li>{{ s.name }}</li></a>
                             {% endif %}
                         {% endfor %}
-                        <a href="{% url 'contact' %}"><li>Contato</li></a>
+                        <a href="{% url 'corporate' %}"><li>Corporate</li></a>
                     </ul>
                     <span id="mobile-menu" class="fa fa-bars"></span>
                 </div>
@@ -40,7 +40,7 @@
                         <a href="{% url 'service' s.uri %}"><li>{{ s.name }}</li></a>
                     {% endif %}
                 {% endfor %}
-                <a href="{% url 'contact' %}"><li>Contato</li></a>
+                <a href="{% url 'corporate' %}"><li>Corporate</li></a>
             </ul>
         </header>
 
@@ -60,7 +60,6 @@
                 <span class="light-text white"><span class="fa fa-map-marker"></span> {{ content.endereco_contato }}</span>
                 <span class="light-text white"><span class="fa fa-phone"></span> {{ content.telefone }}</span>
                 <span class="light-text white margin-b"><span class="fa fa-envelope-o"></span> {{ content.email }}</span>
-                <a href="{% url 'contact' %}" class="o-button-reverse footer-logo_btn">Contato</a>     
             </div>
             {% load instagram_client %}
 

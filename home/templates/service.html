@@ -3,7 +3,7 @@
     MyTrip - {{ service.name }}
 {% endblock %}
 {% block content %}
-    {% load static %}   
+    {% load static %}
     {% get_media_prefix as media_prefix %}
     <div class="flex-column justify-center service-page-top triangles" style="background-image:url({{ media_prefix }}{{ service.photo }});"></div>
     <div class="full-w flex-column">
