@@ -5,7 +5,10 @@
 {% block content %}
     {% load static %}
     {% get_media_prefix as media_prefix %}
-    <div class="flex-column justify-center service-page-top triangles" style="background-image:url({{ media_prefix }}{{ service.photo }});"></div>
+    <div 
+        class="flex-column justify-center service-page-top triangles"
+        style="background-image:url({{ media_prefix }}{{ service.photo }});background-position:{{service.photo_position}};">    
+    </div>
     <div class="full-w flex-column">
         <div class="flex-column justify-center section-title_container service-page-title">
             <h2 class="title dark text-center">{{ service.name }}</h2>
