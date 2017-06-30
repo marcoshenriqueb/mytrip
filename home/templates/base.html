@@ -22,7 +22,7 @@
                 </div>
                 <div class="header-nav">
                     <ul class="header-nav_items flex">
-                        <a href="{% url 'home' %}"><li>Home</li></a>
+                        <a href="{% url 'home' %}"><li>MyTrip by Solid</li></a>
                         {% for s in services %}
                             {% if forloop.counter < 4 %}
                                 <a href="{% url 'service' s.uri %}"><li>{{ s.name }}</li></a>
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <ul class="header-nav_mobile-items flex-column">
-                <a href="{% url 'home' %}"><li>Home</li></a>
+                <a href="{% url 'home' %}"><li>MyTrip by Solid</li></a>
                 {% for s in services %}
                     {% if forloop.counter < 4 %}
                         <a href="{% url 'service' s.uri %}"><li>{{ s.name }}</li></a>
