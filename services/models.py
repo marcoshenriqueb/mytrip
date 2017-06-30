@@ -19,3 +19,17 @@ class Service(models.Model):
 
     def __str__(self):
         return self.name
+
+class Faq(models.Model):
+    service = models.ForeignKey(Service, on_delete=models.PROTECT, verbose_name="Serviço")
+    question = models.TextField("Pergunta", null=False, blank=False)
+    answer = models.TextField("Resposta", null=False, blank=False)
+    created_at = models.DateTimeField("Criado em", auto_now=False, auto_now_add=True)
+    updated_at = models.DateTimeField("Atualizado em", auto_now=True, auto_now_add=False)
+
+    class Meta:
+        verbose_name = 'FAQ'
+        verbose_name_plural = 'FAQ'
+
+    def __str__(self):
+        return self.question

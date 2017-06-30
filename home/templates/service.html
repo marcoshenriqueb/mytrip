@@ -26,6 +26,17 @@
             <button class="button">Enviar</button>
         </div>
     </div>
+    {% if faq %}
+    <div class="flex-column full-w">
+        <h2 class="dark text-center">FAQ</h2>
+        <div class="flex-column start faq-container">
+            {% for f in faq %}
+                <span class="dark-label">{{ f.question }}</span>
+                <span class="light-text">{{ f.answer }}</span>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
     <br>
     <br>
     <br>

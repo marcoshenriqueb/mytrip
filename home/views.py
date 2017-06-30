@@ -1,7 +1,7 @@
 from django.views.generic.base import TemplateView
 from contents.models import Content
 from clients.models import Client
-from services.models import Service
+from services.models import Service, Faq
 
 class HomePageView(TemplateView):
     template_name = "home.html"
@@ -24,6 +24,7 @@ class ServicePageView(TemplateView):
         context = super(ServicePageView, self).get_context_data(**kwargs)
         context['services'] = Service.objects.all()
         context['service'] = Service.objects.filter(uri=kwargs['uri']).first()
+        context['faq'] = Faq.objects.filter(service=context['service'])
         content = {}
         for c in Content.objects.all():
             content[c.key.lower().replace(" ", "_")] = c.text

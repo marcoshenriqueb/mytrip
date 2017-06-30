@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django import forms
 import re
-from .models import Service
+from .models import Service, Faq
 
 class ServiceForm(forms.ModelForm):
     def clean_uri(self):
@@ -21,3 +21,8 @@ class ServiceAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         obj.user = request.user
         obj.save()
+
+@admin.register(Faq)
+class FAQAdmin(admin.ModelAdmin):
+    list_display = ('id', 'question', 'created_at', 'updated_at')
+    list_display_links = ('question',)
