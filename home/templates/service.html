@@ -10,13 +10,13 @@
         style="background-image:url({{ media_prefix }}{{ service.photo }});background-position:{{service.photo_position}};">    
     </div>
     <div class="full-w flex-column">
-        <div class="flex-column justify-center section-title_container service-page-title">
+        <div class="flex-column justify-center section-title_container service-page-title w-900">
             <h2 class="title dark text-center">{{ service.name }}</h2>
-            <span style="white-space:pre-wrap;" class="text-center full-w light-text ">{{ service.description }}</span>
+            <span style="white-space:pre-wrap;" class="full-w light-text ">{{ service.description }}</span>
         </div>
     </div>
     <div class="full-w flex-column">
-        <div class="service-page-content flex-column start contact-form">
+        <div class="service-page-content flex-column start contact-form w-900">
             <div class="flex half-form_container full-w">
                 <input type="text" placeholder="Nome" name="name" class="half-form">
                 <input type="text" placeholder="Telefone" name="phone" class="half-form">
@@ -29,7 +29,7 @@
     {% if faq %}
     <div class="flex-column full-w">
         <h2 class="dark text-center">FAQ</h2>
-        <div class="flex-column start faq-container">
+        <div class="flex-column start faq-container w-900">
             {% for f in faq %}
                 <span class="dark-label">{{ f.question }}</span>
                 <span class="light-text">{{ f.answer }}</span>
