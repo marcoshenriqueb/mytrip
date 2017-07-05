@@ -12,7 +12,7 @@
     <div class="full-w flex-column">
         <div class="flex-column justify-center section-title_container service-page-title w-900">
             <h2 class="title dark text-center">{{ service.name }}</h2>
-            <span style="white-space:pre-wrap;" class="full-w light-text ">{{ service.description }}</span>
+            <span style="white-space:pre-wrap;" class="full-w light-text ">{{ service.description|safe }}</span>
         </div>
     </div>
     <div class="full-w flex-column">
