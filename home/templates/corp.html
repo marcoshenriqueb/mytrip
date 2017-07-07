@@ -4,13 +4,17 @@
 {% endblock %}
 {% block content %}
     <div class="flex-column justify-center corporate-page-top triangles"></div>
-    <div id="contact" class="contact-container flex start full-w">
-        <div class="contact-info flex-column start">
-            <h2 class="dark text-center" style="text-transform:uppercase;margin-top:0;">Corporate</h2>
-            <span class="light-text margin-b">{{ content.texto_corporate }}</span>
+    <div class="full-w flex-column">
+        <div class="flex-column justify-center section-title_container service-page-title w-900">
+            <h2 class="title dark text-center">Corporate</h2>
+            <span style="white-space:pre-wrap;" class="full-w light-text ">{{ content.texto_corporate|safe }}</span>
         </div>
-        <div class="contact-form">
-            <div class="flex half-form_container">
+    </div>
+    
+    <div class="flex-column full-w">
+        <a href="http://www.solid.com.br/" target="_blank" class="button corporate-button">Acesse o site</a>
+        <div class="service-page-content flex-column start contact-form w-900">
+            <div class="flex half-form_container full-w">
                 <input type="text" placeholder="Nome" name="name" class="half-form">
                 <input type="text" placeholder="Telefone" name="phone" class="half-form">
             </div>
