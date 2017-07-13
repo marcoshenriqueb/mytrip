@@ -17,6 +17,19 @@ input, textarea
     &:focus
         border-color secondarycolor
 
+input[type="radio"], input[type="checkbox"]
+    height 15px
+    width 15px !important
+    border-radius 10px
+    display inline-block
+    background-image linear-gradient(0deg, transparent 20%, hsla(0,0%,100%,.7), transparent 80%)
+    background-color primarycolor
+    cursor pointer
+    position relative
+    margin-right 15px
+    margin-bottom 15px
+    margin-top 15px
+
 input
     height 46px
 .button, .o-button-reverse, .o-button    
@@ -39,6 +52,7 @@ input
     &:hover, &:active, &:focus
         background-color: darkcolor
         border-color darkcolor
+        color white
 
 .o-button
     font-family: 'Raleway', sans-serif
@@ -99,3 +113,6 @@ input
     &:hover, &:active, &:focus
         background-color: secondarycolor
         color: white
+
+.radio-label
+    margin 0 2.5rem 0 0
