@@ -1,47 +1,48 @@
 <div class="full-w flex-column">
-    <div class="service-page-content flex-column start contact-form w-900">
+    <form method="POST" class="service-page-content flex-column start contact-form w-900">
+        {% csrf_token %}
         <div class="flex half-form_container full-w">
             <div class="flex-column start half-w">
                 <label for="name" class="dark-text">Nome</label>
-                <input type="text" placeholder="Nome" name="name">
+                <input required type="text" placeholder="Nome" name="name">
             </div>
             <div class="flex-column start half-w">
                 <label for="phone" class="dark-text">Telefone</label>
-                <input type="text" placeholder="Telefone" name="phone" class="telephone-number">
+                <input required type="text" placeholder="Telefone" name="phone" class="telephone-number">
             </div>
         </div>
         <div class="flex half-form_container full-w">
             <div class="flex-column start half-w">
                 <label for="email" class="dark-text">Email</label>
-                <input type="email" placeholder="Email" name="email">
+                <input required type="email" placeholder="Email" name="email">
             </div>
             <div class="flex-column start half-w">
                 <label for="passengers" class="dark-text">Numero de Passageiros</label>
-                <input type="number" name="passengers">
+                <input required type="number" name="passengers">
             </div>
         </div>
         <div class="flex half-form_container full-w">
             <div class="flex-column start half-w">
                 <label for="startdate" class="dark-text">Data de início</label>
-                <input type="text" name="startdate" class="date-input">
+                <input required type="text" name="startdate" class="date-input">
             </div>
             <div class="flex-column start half-w">
                 <label for="enddate" class="dark-text">Data de volta</label>
-                <input type="text" name="enddate" class="date-input">
+                <input required type="text" name="enddate" class="date-input">
             </div>
         </div>
         <div class="flex half-form_container full-w">
             <div class="flex-column start half-w">
                 <label for="startrange" class="dark-text">Flexibilidade ida (dias)</label>
-                <input type="number" name="startrange">
+                <input required type="number" name="startrange">
             </div>
             <div class="flex-column start half-w">
                 <label for="endrange" class="dark-text">Flexibilidade volta (dias)</label>
-                <input type="number" name="endrange">
+                <input required type="number" name="endrange">
             </div>
         </div>
         <div class="flex-column start full-w">
-            <label for="lastdestinations" class="dark-text">Qual os últimos 3 destinos recentes?</label>
+            <label for="lastdestinations" class="dark-text">Quais os últimos 3 destinos recentes?</label>
             <textarea name="lastdestinations" id="" cols="30" rows="2"></textarea>
         </div>
         <div class="flex-column start full-w">
@@ -50,14 +51,14 @@
         </div>
         <div class="flex-column start full-w">
             <label for="preferences" class="dark-text">Quando você viaja, você prefere:</label>
-            <div class="flex">
+            <div class="flex wrap">
+                <label class="flex light-text radio-label" for="preferences"><input checked type="radio" name="preferences" value="cultura">Cultura</label>
                 <label class="flex light-text radio-label" for="preferences"><input type="radio" name="preferences" value="ação">Ação</label>
                 <label class="flex light-text radio-label" for="preferences"><input type="radio" name="preferences" value="relaxar">Relaxar</label>
-                <label class="flex light-text radio-label" for="preferences"><input type="radio" name="preferences" value="cultura">Cultura</label>
             </div>
         </div>
         <div class="flex-column start full-w">
-            <label for="plannedtrips" class="dark-text">Quando você viaja, você prefere:</label>
+            <label for="insterests" class="dark-text">Quando você viaja, você prefere:</label>
             <div class="flex wrap">
                 <label class="flex light-text radio-label" for="insterests"><input type="checkbox" name="insterests" value="culinaria">Culinária</label>
                 <label class="flex light-text radio-label" for="insterests"><input type="checkbox" name="insterests" value="esportes">Esportes radicais</label>
@@ -103,8 +104,8 @@
         </div>
         <div class="flex-column start full-w">
             <label for="accommodation" class="dark-text">Qual tipo de acomodação você prefere?</label>
-            <div class="flex">
-                <label class="flex light-text radio-label" for="accommodation"><input type="radio" name="accommodation" value="hotel">Hotel</label>
+            <div class="flex wrap">
+                <label class="flex light-text radio-label" for="accommodation"><input checked type="radio" name="accommodation" value="hotel">Hotel</label>
                 <label class="flex light-text radio-label" for="accommodation"><input type="radio" name="accommodation" value="pousada">Pousada</label>
                 <label class="flex light-text radio-label" for="accommodation"><input type="radio" name="accommodation" value="hostel">Hostel / Albergue</label>
                 <label class="flex light-text radio-label" for="accommodation"><input type="radio" name="accommodation" value="resorts">Resorts</label>
@@ -144,5 +145,15 @@
             </div>
         </div>
         <button class="button">Enviar</button>
-    </div>
+        {% if form.errors %}
+            {% for error, value in form.errors.items %}
+                <span style="color:red;" class="light-text margin-b"><span style="text-transform:capitalize;">{{ error }}</span>: {{ value.as_text }}</span><br>
+            {% endfor %}
+        {% endif %}
+        {% if messages %}
+            {% for message in messages %}
+                <span class="dark-label margin-b">{{ message }}</span>
+            {% endfor %}
+        {% endif %}
+    </form>
 </div>
