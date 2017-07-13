@@ -4,50 +4,50 @@
         <div class="flex half-form_container full-w">
             <div class="flex-column start half-w">
                 <label for="name" class="dark-text">Nome</label>
-                <input required type="text" placeholder="Nome" name="name">
+                <input required type="text" {% if form %} value="{{ form.name }}" {% endif %} placeholder="Nome" name="name">
             </div>
             <div class="flex-column start half-w">
                 <label for="phone" class="dark-text">Telefone</label>
-                <input required type="text" placeholder="Telefone" name="phone" class="telephone-number">
+                <input required type="text" {% if form %} value="{{ form.phone }}" {% endif %} placeholder="Telefone" name="phone" class="telephone-number">
             </div>
         </div>
         <div class="flex half-form_container full-w">
             <div class="flex-column start half-w">
                 <label for="email" class="dark-text">Email</label>
-                <input required type="email" placeholder="Email" name="email">
+                <input required type="email" {% if form %} value="{{ form.email }}" {% endif %} placeholder="Email" name="email">
             </div>
             <div class="flex-column start half-w">
                 <label for="passengers" class="dark-text">Numero de Passageiros</label>
-                <input required type="number" name="passengers">
+                <input required type="number" {% if form %} value="{{ form.passengers }}" {% endif %} name="passengers">
             </div>
         </div>
         <div class="flex half-form_container full-w">
             <div class="flex-column start half-w">
                 <label for="startdate" class="dark-text">Data de início</label>
-                <input required type="text" name="startdate" class="date-input">
+                <input required type="text" {% if form %} value="{{ form.startdate }}" {% endif %} name="startdate" class="date-input">
             </div>
             <div class="flex-column start half-w">
                 <label for="enddate" class="dark-text">Data de volta</label>
-                <input required type="text" name="enddate" class="date-input">
+                <input required type="text" {% if form %} value="{{ form.enddate }}" {% endif %} name="enddate" class="date-input">
             </div>
         </div>
         <div class="flex half-form_container full-w">
             <div class="flex-column start half-w">
                 <label for="startrange" class="dark-text">Flexibilidade ida (dias)</label>
-                <input required type="number" name="startrange">
+                <input required type="number" {% if form %} value="{{ form.startrange }}" {% endif %} name="startrange">
             </div>
             <div class="flex-column start half-w">
                 <label for="endrange" class="dark-text">Flexibilidade volta (dias)</label>
-                <input required type="number" name="endrange">
+                <input required type="number" {% if form %} value="{{ form.endrange }}" {% endif %} name="endrange">
             </div>
         </div>
         <div class="flex-column start full-w">
             <label for="lastdestinations" class="dark-text">Quais os últimos 3 destinos recentes?</label>
-            <textarea name="lastdestinations" id="" cols="30" rows="2"></textarea>
+            <textarea name="lastdestinations" id="" cols="30" rows="2">{% if form %} {{ form.lastdestinations }} {% endif %}</textarea>
         </div>
         <div class="flex-column start full-w">
             <label for="plannedtrips" class="dark-text">Alguma viagem planejada em breve?</label>
-            <textarea name="plannedtrips" id="" cols="30" rows="2"></textarea>
+            <textarea name="plannedtrips" id="" cols="30" rows="2">{% if form %} {{ form.plannedtrips }} {% endif %}</textarea>
         </div>
         <div class="flex-column start full-w">
             <label for="preferences" class="dark-text">Quando você viaja, você prefere:</label>
@@ -100,7 +100,7 @@
         </div>
         <div class="flex-column start full-w">
             <label for="foodrestrictions" class="dark-text">Você tem alguma restrição de alimentação?</label>
-            <textarea name="foodrestrictions" id="" cols="30" rows="2"></textarea>
+            <textarea name="foodrestrictions" id="" cols="30" rows="2">{% if form %} {{ form.foodrestrictions }} {% endif %}</textarea>
         </div>
         <div class="flex-column start full-w">
             <label for="accommodation" class="dark-text">Qual tipo de acomodação você prefere?</label>
@@ -118,7 +118,7 @@
             <label for="notes" class="light-text">
                 Tem alguma limitação fisica? Tem algum destino que vai sempre à trabalho? Se está viajando com crianças, nos de algumas informações do que elas gostam e o que fazem normalmente juntos.
             </label>
-            <textarea name="notes" id="" cols="30" rows="5"></textarea>
+            <textarea name="notes" id="" cols="30" rows="5">{% if form %} {{ form.notes }} {% endif %}</textarea>
         </div>
         <div class="flex-column start full-w">
             <label for="whereto" class="dark-text">Prefere viajar para:</label>

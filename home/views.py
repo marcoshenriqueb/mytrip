@@ -44,9 +44,6 @@ class ServicePageView(TemplateView):
         context['content'] = content
         form = request.POST
         try:
-            import logging
-            logger = logging.getLogger(__name__)
-            logger.error(form['budget'])
             send_mail(
                 'Contato Site MyView',
                 'Serviço: %s,\n\nNome: %s,\nEmail: %s,\nTelefone: %s,\n N de Passageiros: %s,\n Data inicio: %s\
@@ -76,11 +73,13 @@ class ServicePageView(TemplateView):
                 'myviewsolutions123@gmail.com',
                 ['marcoshenriqueb@gmail.com',]
             )
-            messages.add_message(request, messages.INFO, 'Obrigado pelo contato!')
+            messages.add_message(request, messages.INFO, 'Obrigado pelo contato, retornaremos em breve!')
         except Exception as e:
-            messages.add_message(request, messages.INFO, e)
-            # messages.add_message(request, messages.INFO, 'Não conseguimos enviar a mensagem, por favor tente novamente.')
-        context['form'] = form
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.error(form['budget'])
+            messages.add_message(request, messages.INFO, 'Não conseguimos enviar a mensagem, por favor tente novamente.')
+            context['form'] = form
         return TemplateResponse(request, 'service.html', context)
 
 
