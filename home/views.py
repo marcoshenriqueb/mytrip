@@ -75,9 +75,9 @@ class ServicePageView(TemplateView):
             )
             messages.add_message(request, messages.INFO, 'Obrigado pelo contato, retornaremos em breve!')
         except Exception as e:
-            import logging
-            logger = logging.getLogger(__name__)
-            logger.error(form['budget'])
+            # import logging
+            # logger = logging.getLogger(__name__)
+            # logger.error(form['budget'])
             messages.add_message(request, messages.INFO, 'Não conseguimos enviar a mensagem, por favor tente novamente.')
             context['form'] = form
         return TemplateResponse(request, 'service.html', context)

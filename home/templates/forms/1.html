@@ -1,4 +1,5 @@
 <div class="full-w flex-column">
+    <h2 class="dark text-center">FORMULÁRIO PARA SUA VIAGEM SURPRESA</h2>    
     <form method="POST" class="service-page-content flex-column start contact-form w-900">
         {% csrf_token %}
         <div class="flex half-form_container full-w">
@@ -42,11 +43,13 @@
             </div>
         </div>
         <div class="flex-column start full-w">
-            <label for="lastdestinations" class="dark-text">Quais os últimos 3 destinos recentes?</label>
+            <label for="lastdestinations" class="dark-text">Quais foram os últimos 3-5 destinos que você viajou recentemente?</label>
+            <label for="lastdestinations" class="light-text">Não queremos te enviar para um destino que você foi recentemente.</label>
             <textarea name="lastdestinations" id="" cols="30" rows="2">{% if form %} {{ form.lastdestinations }} {% endif %}</textarea>
         </div>
         <div class="flex-column start full-w">
             <label for="plannedtrips" class="dark-text">Alguma viagem planejada em breve?</label>
+            <label for="plannedtrips" class="light-text">Não queremos te enviar para o mesmo destino</label>
             <textarea name="plannedtrips" id="" cols="30" rows="2">{% if form %} {{ form.plannedtrips }} {% endif %}</textarea>
         </div>
         <div class="flex-column start full-w">
@@ -58,7 +61,7 @@
             </div>
         </div>
         <div class="flex-column start full-w">
-            <label for="insterests" class="dark-text">Quando você viaja, você prefere:</label>
+            <label for="insterests" class="dark-text">Quais seus interesses em uma viagem?</label>
             <div class="flex wrap">
                 <label class="flex light-text radio-label" for="insterests"><input type="checkbox" name="insterests" value="culinaria">Culinária</label>
                 <label class="flex light-text radio-label" for="insterests"><input type="checkbox" name="insterests" value="esportes">Esportes radicais</label>
@@ -100,6 +103,7 @@
         </div>
         <div class="flex-column start full-w">
             <label for="foodrestrictions" class="dark-text">Você tem alguma restrição de alimentação?</label>
+            <label for="foodrestrictions" class="light-text">Teremos o cuidado de adicionar opções que atendam sua necessidade</label>
             <textarea name="foodrestrictions" id="" cols="30" rows="2">{% if form %} {{ form.foodrestrictions }} {% endif %}</textarea>
         </div>
         <div class="flex-column start full-w">
@@ -116,7 +120,7 @@
                 Tem alguma coisa mais que precisamos saber?
             </label>
             <label for="notes" class="light-text">
-                Tem alguma limitação fisica? Tem algum destino que vai sempre à trabalho? Se está viajando com crianças, nos de algumas informações do que elas gostam e o que fazem normalmente juntos.
+                Tem alguma limitação fisica? Tem algum destino que vai sempre à trabalho? Se está viajando com crianças, nos de algumas informações do que elas gostam e o que fazem normalmente juntos?
             </label>
             <textarea name="notes" id="" cols="30" rows="5">{% if form %} {{ form.notes }} {% endif %}</textarea>
         </div>
