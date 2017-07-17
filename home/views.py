@@ -1,11 +1,14 @@
 from django.views.generic.base import TemplateView
 from django.views import View
+from django.http import HttpResponseRedirect
 from django.template.response import TemplateResponse
 from django.contrib import messages
+from django.urls import reverse
 from django.core.mail import send_mail
 from contents.models import Content
 from clients.models import Client
 from services.models import Service, Faq
+from .forms import LeadForm
 
 class HomePageView(TemplateView):
     template_name = "home.html"
@@ -19,6 +22,24 @@ class HomePageView(TemplateView):
             content[c.key.lower().replace(" ", "_")] = c.text
         context['content'] = content
         return context
+
+class LeadView(View):
+    def post(self, request):
+        try:
+            form = LeadForm(request.POST)
+            if form.is_valid():
+                messages.add_message(request, messages.INFO, 'Seu email foi adicionado a nossa newsletter!')
+                send_mail(
+                    'ENTRADA DE LEAD PARA MAILLING - MyTrip',
+                    form.cleaned_data['email'],
+                    'myviewsolutions123@gmail.com',
+                    ['contato@myviewsolutions.com', 'thiago@myviewsolutions']
+                )
+            else:
+                messages.add_message(request, messages.INFO, 'Digite um email válido, por favor.')
+        except Exception as e:
+            messages.add_message(request, messages.INFO, 'Não conseguimos adicionar o email na newsletter, por favor tente novamente.')
+        return HttpResponseRedirect(reverse('home') + '#contact')
 
 
 class ServicePageView(TemplateView):

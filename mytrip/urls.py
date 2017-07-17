@@ -17,11 +17,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url
 from django.contrib import admin
-from home.views import HomePageView, CorporateView, ServicePageView
+from home.views import HomePageView, CorporateView, LeadView, ServicePageView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomePageView.as_view(), name='home'),
+    url(r'^lead/$', LeadView.as_view(), name='lead'),
     url(r'^corporate/$', CorporateView.as_view(), name='corporate'),
     url(r'^(?P<uri>[a-z0-9-]+)/$', ServicePageView.as_view(), name='service'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
