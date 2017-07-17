@@ -15,11 +15,11 @@
             <span style="white-space:pre-wrap;" class="full-w light-text ">{{ service.description|safe }}</span>
         </div>
     </div>
-    {% if faq %}
     <div class="full-w flex-column pad faq-cta">
+    {% if faq %}
         <a href="#faq" class="button">PERGUNTAS FREQUENTES</a>
-    </div>
     {% endif %}
+    </div>
     {% if service.form %}
         {% with service.form|stringformat:"i" as template_number %}
         {% with "forms/"|add:template_number|add:".html" as template %}
