@@ -1,0 +1,23 @@
+<div class="flex-column full-w">
+    <h2 class="dark text-center">NOS CONTE UM POUCO MAIS SOBRE O SEU SONHO</h2>    
+    <form method="POST" class="service-page-content flex-column start contact-form w-900">
+        {% csrf_token %}
+        <div class="flex half-form_container full-w">
+            <input required type="text" placeholder="Nome" name="name" class="half-form">
+            <input required type="text" placeholder="Telefone" name="phone" class="half-form">
+        </div>
+        <input required type="text" placeholder="email" name="email">
+        <textarea name="message" placeholder="Mensagem" id="" cols="30" rows="5"></textarea>
+        <button type="submit" class="button">Enviar</button>
+        {% if form.errors %}
+            {% for error, value in form.errors.items %}
+                <span style="color:red;" class="light-text margin-b"><span style="text-transform:capitalize;">{{ error }}</span>: {{ value.as_text }}</span><br>
+            {% endfor %}
+        {% endif %}
+        {% if messages %}
+            {% for message in messages %}
+                <span class="dark-label margin-b">{{ message }}</span>
+            {% endfor %}
+        {% endif %}
+    </form>
+</div>

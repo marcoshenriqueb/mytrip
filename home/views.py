@@ -93,8 +93,8 @@ class ServicePageView(TemplateView):
                         ', '.join(form.getlist('budget')) if 'budget' in form else '',
                     ),
                     'myviewsolutions123@gmail.com',
-                    # ['contato@myviewsolutions.com', 'thiago@myviewsolutions']
-                    ['marcoshenriqueb@gmail.com']
+                    ['contato@myviewsolutions.com', 'thiago@myviewsolutions']
+                    # ['marcoshenriqueb@gmail.com']
                 )
             if context['service'].form == 2:
                 send_mail(
@@ -129,8 +129,21 @@ class ServicePageView(TemplateView):
                         form['food'] or ''
                     ),
                     'myviewsolutions123@gmail.com',
-                    ['marcoshenriqueb@gmail.com']
-                    # ['contato@myviewsolutions.com', 'thiago@myviewsolutions']
+                    # ['marcoshenriqueb@gmail.com']
+                    ['contato@myviewsolutions.com', 'thiago@myviewsolutions']
+                )
+            if context['service'].form == 3:
+                send_mail(
+                    'Contato Site MyTrip - Wedding',
+                    'Nome: %s,\nEmail: %s,\nTelefone: %s,\n Mensagem: %s' % (
+                        form['name'],
+                        form['email'],
+                        form['phone'],
+                        form['message'],
+                    ),
+                    'myviewsolutions123@gmail.com',
+                    # ['marcoshenriqueb@gmail.com']
+                    ['contato@myviewsolutions.com', 'thiago@myviewsolutions']
                 )
             messages.add_message(request, messages.INFO, 'Obrigado pelo contato, retornaremos em breve!')
         except Exception as e:
@@ -170,8 +183,8 @@ class CorporateView(TemplateView):
                     form['message'],
                 ),
                 'myviewsolutions123@gmail.com',
-                # ['contato@myviewsolutions.com', 'thiago@myviewsolutions']
-                ['marcoshenriqueb@gmail.com']
+                ['contato@myviewsolutions.com', 'thiago@myviewsolutions']
+                # ['marcoshenriqueb@gmail.com']
             )
             messages.add_message(request, messages.INFO, 'Obrigado pelo contato, retornaremos em breve!')
         except Exception as e:
