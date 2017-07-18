@@ -1,5 +1,5 @@
 <div class="full-w flex-column">
-    <h2 class="dark text-center">FORMULÁRIO PARA SUA VIAGEM DO SEU JEITO</h2>    
+    <h2 class="dark text-center">FORMULÁRIO PARA VIAJAR DO SEU JEITO</h2>    
     <form method="POST" class="service-page-content flex-column start contact-form w-900">
         {% csrf_token %}
         <div class="flex half-form_container full-w">
@@ -19,37 +19,37 @@
             </div>
             <div class="flex-column start half-w">
                 <label for="passengers" class="dark-text">Numero de Passageiros</label>
-                <input required type="number" {% if form %} value="{{ form.passengers }}" {% endif %} name="passengers">
+                <input type="number" {% if form %} value="{{ form.passengers }}" {% endif %} name="passengers">
             </div>
         </div>
         <div class="flex half-form_container full-w">
             <div class="flex-column start half-w">
                 <label for="origin" class="dark-text">Origem</label>
-                <input required type="text" {% if form %} value="{{ form.origin }}" {% endif %} name="origin">
+                <input type="text" {% if form %} value="{{ form.origin }}" {% endif %} name="origin">
             </div>
             <div class="flex-column start half-w">
                 <label for="destination" class="dark-text">Destinos</label>
-                <input required type="text" {% if form %} value="{{ form.destination }}" {% endif %} name="destination">
+                <input type="text" {% if form %} value="{{ form.destination }}" {% endif %} name="destination">
             </div>
         </div>
         <div class="flex half-form_container full-w">
             <div class="flex-column start half-w">
                 <label for="startdate" class="dark-text">Data de início</label>
-                <input required type="text" {% if form %} value="{{ form.startdate }}" {% endif %} name="startdate" class="date-input">
+                <input type="text" {% if form %} value="{{ form.startdate }}" {% endif %} name="startdate" class="date-input">
             </div>
             <div class="flex-column start half-w">
                 <label for="enddate" class="dark-text">Data de volta</label>
-                <input required type="text" {% if form %} value="{{ form.enddate }}" {% endif %} name="enddate" class="date-input">
+                <input type="text" {% if form %} value="{{ form.enddate }}" {% endif %} name="enddate" class="date-input">
             </div>
         </div>
         <div class="flex half-form_container full-w">
             <div class="flex-column start half-w">
                 <label for="startrange" class="dark-text">Flexibilidade ida (dias)</label>
-                <input required type="number" {% if form %} value="{{ form.startrange }}" {% endif %} name="startrange">
+                <input type="number" {% if form %} value="{{ form.startrange }}" {% endif %} name="startrange">
             </div>
             <div class="flex-column start half-w">
                 <label for="endrange" class="dark-text">Flexibilidade volta (dias)</label>
-                <input required type="number" {% if form %} value="{{ form.endrange }}" {% endif %} name="endrange">
+                <input type="number" {% if form %} value="{{ form.endrange }}" {% endif %} name="endrange">
             </div>
         </div>
         <div class="flex-column start full-w">
@@ -76,14 +76,24 @@
         <div class="flex-column start full-w">
             <label for="experience" class="dark-text">Tipo de experiência:</label>
             <div class="flex-column start">
-                <label class="flex light-text radio-label" for="experience"><input type="radio" name="experience" value="serviços de viagem">Serviços de viagem - Já sabe onde que ir e precisa apenas de serviços de viagens no destino de sua escolha?</label>
+                <label class="flex light-text radio-label" for="experience"><input type="radio" name="experience" value="serviços de viagem">Serviços de viagem - Já sabe onde quer ir e precisa apenas de serviços de viagens no destino de sua escolha?</label>
+                <div class="flex-column start full-w pad">
+                    <label for="experiencedetail" class="dark-text">Caso tenha escolhido serviço de viagem:</label>
+                    <div class="flex wrap">
+                        <label class="flex light-text radio-label" for="experiencedetail"><input type="checkbox" name="experiencedetail" value="passagem">Passagem</label>
+                        <label class="flex light-text radio-label" for="experiencedetail"><input type="checkbox" name="experiencedetail" value="hotel">Hotel</label>
+                        <label class="flex light-text radio-label" for="experiencedetail"><input type="checkbox" name="experiencedetail" value="transfer">Transfer</label>
+                        <label class="flex light-text radio-label" for="experiencedetail"><input type="checkbox" name="experiencedetail" value="ingresso">Ingresso</label>
+                        <label class="flex light-text radio-label" for="experiencedetail"><input type="checkbox" name="experiencedetail" value="seguro de viagem">Seguro de viagem</label>
+                        <label class="flex light-text radio-label" for="experiencedetail"><input type="checkbox" name="experiencedetail" value="aluguel de carro">Aluguel de carro</label>
+                        <label class="flex light-text radio-label" for="experiencedetail"><input type="checkbox" name="experiencedetail" value="tours">Tours</label>
+                        <label class="flex light-text radio-label" for="experiencedetail"><input type="checkbox" name="experiencedetail" value="trem">Trem</label>
+                        <label class="flex light-text radio-label" for="experiencedetail"><input type="checkbox" name="experiencedetail" value="outros">Outros</label>
+                    </div>
+                </div>
                 <label class="flex light-text radio-label" for="experience"><input type="radio" name="experience" value="roteiro personalizado">Roteiro personalizado - Precisa de uma ajudinha e um roteiro mais completo?</label>
                 <label class="flex light-text radio-label" for="experience"><input type="radio" name="experience" value="experiência completa">Experiência completa - Deseja uma viagem com toda a consultoria e serviço premium?</label>
             </div>
-        </div>
-        <div class="flex-column start full-w">
-            <label for="experiencedetail" class="dark-text">Passagem, hotel, transfer, ingressos, seguro de viagem, aluguel de carro, tours, trem, outros (caso tenha escolhido serviço de viagem)?</label>
-            <textarea name="experiencedetail" cols="30" rows="2">{% if form %} {{ form.experiencedetail }} {% endif %}</textarea>
         </div>
         <div class="flex-column start full-w">
             <label for="experiencedetail2" class="dark-text">Caso tenha escolhido roteiro personalizado ou experiência completa, nos conte mais um pouco.</label>

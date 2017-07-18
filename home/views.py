@@ -93,7 +93,8 @@ class ServicePageView(TemplateView):
                         ', '.join(form.getlist('budget')) if 'budget' in form else '',
                     ),
                     'myviewsolutions123@gmail.com',
-                    ['contato@myviewsolutions.com', 'thiago@myviewsolutions']
+                    # ['contato@myviewsolutions.com', 'thiago@myviewsolutions']
+                    ['marcoshenriqueb@gmail.com']
                 )
             if context['service'].form == 2:
                 send_mail(
@@ -120,7 +121,7 @@ class ServicePageView(TemplateView):
                         form['ticket'] or '',
                         form['hotel'] or '',
                         form['experience'] if 'experience' in form else '',
-                        form['experiencedetail'] or '',
+                        ', '.join(form.getlist('experiencedetail')) if 'experiencedetail' in form else '',
                         form['experiencedetail2'] or '',
                         form['preferences'] or '',
                         form['animals'] or '',
@@ -128,7 +129,8 @@ class ServicePageView(TemplateView):
                         form['food'] or ''
                     ),
                     'myviewsolutions123@gmail.com',
-                    ['contato@myviewsolutions.com', 'thiago@myviewsolutions']
+                    ['marcoshenriqueb@gmail.com']
+                    # ['contato@myviewsolutions.com', 'thiago@myviewsolutions']
                 )
             messages.add_message(request, messages.INFO, 'Obrigado pelo contato, retornaremos em breve!')
         except Exception as e:
@@ -141,13 +143,41 @@ class ServicePageView(TemplateView):
 
 
 class CorporateView(TemplateView):
-    template_name = "corp.html"
-
-    def get_context_data(self, **kwargs):
+    def get(self, request, **kwargs):
         context = super(CorporateView, self).get_context_data(**kwargs)
         context['services'] = Service.objects.all()
         content = {}
         for c in Content.objects.all():
             content[c.key.lower().replace(" ", "_")] = c.text
         context['content'] = content
-        return context
+        return TemplateResponse(request, 'corp.html', context)
+
+    def post(self, request, **kwargs):
+        context = super(CorporateView, self).get_context_data(**kwargs)
+        context['services'] = Service.objects.all()
+        content = {}
+        for c in Content.objects.all():
+            content[c.key.lower().replace(" ", "_")] = c.text
+        context['content'] = content
+        form = request.POST
+        try:
+            send_mail(
+                'Contato Site MyTrip - Corporate',
+                'Nome: %s,\nEmail: %s,\nTelefone: %s,\n Mensagem: %s' % (
+                    form['name'],
+                    form['email'],
+                    form['phone'],
+                    form['message'],
+                ),
+                'myviewsolutions123@gmail.com',
+                # ['contato@myviewsolutions.com', 'thiago@myviewsolutions']
+                ['marcoshenriqueb@gmail.com']
+            )
+            messages.add_message(request, messages.INFO, 'Obrigado pelo contato, retornaremos em breve!')
+        except Exception as e:
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.error(e)
+            messages.add_message(request, messages.INFO, 'Não conseguimos enviar a mensagem, por favor tente novamente.')
+            context['form'] = form
+        return TemplateResponse(request, 'corp.html', context)
