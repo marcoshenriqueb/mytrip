@@ -4,9 +4,9 @@
         {% csrf_token %}
         <div class="flex half-form_container full-w">
             <input required type="text" placeholder="Nome" name="name" class="half-form">
-            <input required type="text" placeholder="Telefone" name="phone" class="half-form">
+            <input required type="text" placeholder="Telefone" name="phone" class="half-form telephone-number">
         </div>
-        <input required type="text" placeholder="email" name="email">
+        <input required type="email" placeholder="email" name="email">
         <textarea name="message" placeholder="Mensagem" id="" cols="30" rows="5"></textarea>
         <button type="submit" class="button">Enviar</button>
         {% if form.errors %}

@@ -33,7 +33,7 @@ class LeadView(View):
                     'ENTRADA DE LEAD PARA MAILLING - MyTrip',
                     form.cleaned_data['email'],
                     'myviewsolutions123@gmail.com',
-                    ['contato@myviewsolutions.com', 'thiago@myviewsolutions']
+                    ['contato@mytripviagens.com']
                 )
             else:
                 messages.add_message(request, messages.INFO, 'Digite um email válido, por favor.')
@@ -93,7 +93,7 @@ class ServicePageView(TemplateView):
                         ', '.join(form.getlist('budget')) if 'budget' in form else '',
                     ),
                     'myviewsolutions123@gmail.com',
-                    ['contato@myviewsolutions.com', 'thiago@myviewsolutions']
+                    ['contato@mytripviagens.com']
                     # ['marcoshenriqueb@gmail.com']
                 )
             if context['service'].form == 2:
@@ -130,7 +130,7 @@ class ServicePageView(TemplateView):
                     ),
                     'myviewsolutions123@gmail.com',
                     # ['marcoshenriqueb@gmail.com']
-                    ['contato@myviewsolutions.com', 'thiago@myviewsolutions']
+                    ['contato@mytripviagens.com']
                 )
             if context['service'].form == 3:
                 send_mail(
@@ -143,7 +143,7 @@ class ServicePageView(TemplateView):
                     ),
                     'myviewsolutions123@gmail.com',
                     # ['marcoshenriqueb@gmail.com']
-                    ['contato@myviewsolutions.com', 'thiago@myviewsolutions']
+                    ['contato@mytripviagens.com']
                 )
             messages.add_message(request, messages.INFO, 'Obrigado pelo contato, retornaremos em breve!')
         except Exception as e:
@@ -183,7 +183,7 @@ class CorporateView(TemplateView):
                     form['message'],
                 ),
                 'myviewsolutions123@gmail.com',
-                ['contato@myviewsolutions.com', 'thiago@myviewsolutions']
+                ['contato@mytripviagens.com']
                 # ['marcoshenriqueb@gmail.com']
             )
             messages.add_message(request, messages.INFO, 'Obrigado pelo contato, retornaremos em breve!')
