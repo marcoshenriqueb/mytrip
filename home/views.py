@@ -10,11 +10,10 @@ from clients.models import Client
 from services.models import Service, Faq
 from .forms import LeadForm
 
-# emails = [
-#     'contato@mytripviagens.com',
-#     'mytrip@solid.com.br'
-# ]
-emails = ['marcoshenriqueb@gmail.com']
+emails = [
+    'contato@mytripviagens.com',
+    'mytrip@solid.com.br'
+]
 
 class HomePageView(TemplateView):
     template_name = "home.html"
