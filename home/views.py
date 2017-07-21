@@ -10,6 +10,12 @@ from clients.models import Client
 from services.models import Service, Faq
 from .forms import LeadForm
 
+# emails = [
+#     'contato@mytripviagens.com',
+#     'mytrip@solid.com.br'
+# ]
+emails = ['marcoshenriqueb@gmail.com']
+
 class HomePageView(TemplateView):
     template_name = "home.html"
 
@@ -33,7 +39,7 @@ class LeadView(View):
                     'ENTRADA DE LEAD PARA MAILLING - MyTrip',
                     form.cleaned_data['email'],
                     'myviewsolutions123@gmail.com',
-                    ['contato@mytripviagens.com']
+                    emails
                 )
             else:
                 messages.add_message(request, messages.INFO, 'Digite um email válido, por favor.')
@@ -93,8 +99,7 @@ class ServicePageView(TemplateView):
                         ', '.join(form.getlist('budget')) if 'budget' in form else '',
                     ),
                     'myviewsolutions123@gmail.com',
-                    ['contato@mytripviagens.com']
-                    # ['marcoshenriqueb@gmail.com']
+                    emails
                 )
             if context['service'].form == 2:
                 send_mail(
@@ -129,8 +134,7 @@ class ServicePageView(TemplateView):
                         form['food'] or ''
                     ),
                     'myviewsolutions123@gmail.com',
-                    # ['marcoshenriqueb@gmail.com']
-                    ['contato@mytripviagens.com']
+                    emails
                 )
             if context['service'].form == 3:
                 send_mail(
@@ -183,8 +187,7 @@ class CorporateView(TemplateView):
                     form['message'],
                 ),
                 'myviewsolutions123@gmail.com',
-                ['contato@mytripviagens.com']
-                # ['marcoshenriqueb@gmail.com']
+                emails
             )
             messages.add_message(request, messages.INFO, 'Obrigado pelo contato, retornaremos em breve!')
         except Exception as e:
