@@ -71,7 +71,7 @@
 		</div>
 	{% endif %}
 	<div id="contact" class="newsletter-container bg-light flex justify-center full-w">
-		<form action="{% url 'lead' %}" method="POST" class="flex justify-center full-w">
+		<form action="{% url 'lead' %}" method="POST" class="flex wrap justify-center full-w">
 			<span class="dark-label">{{ content.label_newsletter }}</span>
 			{% csrf_token %}
 			<input type="text" placeholder="Digite o seu email" name="email">
