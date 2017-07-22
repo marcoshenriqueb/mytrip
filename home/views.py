@@ -11,9 +11,12 @@ from services.models import Service, Faq
 from .forms import LeadForm
 
 emails = [
+    # 'marcoshenriqueb@gmail.com',
     'contato@mytripviagens.com',
-    'mytrip@solid.com.br'
+    'mytrip@solid.com.br',
 ]
+
+from_email = 'MyTrip by Solid <myviewsolutions123@gmail.com>'
 
 class HomePageView(TemplateView):
     template_name = "home.html"
@@ -35,9 +38,9 @@ class LeadView(View):
             if form.is_valid():
                 messages.add_message(request, messages.INFO, 'Seu email foi adicionado a nossa newsletter!')
                 send_mail(
-                    'ENTRADA DE LEAD PARA MAILLING - MyTrip',
+                    'MyTrip by Solid - Entrada para lead de mailing',
                     form.cleaned_data['email'],
-                    'myviewsolutions123@gmail.com',
+                    from_email,
                     emails
                 )
             else:
@@ -72,7 +75,7 @@ class ServicePageView(TemplateView):
         try:
             if context['service'].form == 1:
                 send_mail(
-                    'Contato Site MyTrip - Surpresa',
+                    'MyTrip by Solid - Surpresa',
                     'Serviço: %s,\n\nNome: %s,\nEmail: %s,\nTelefone: %s,\n N de Passageiros: %s,\n Data inicio: %s\
                     ,\n Data volta: %s,\n Flexibilidade início: %s,\n Flexibilidade volta: %s\
                     ,\n Últimos destinos: %s,\n Viagens Planejadas: %s,\n Preferências: %s\
@@ -97,12 +100,12 @@ class ServicePageView(TemplateView):
                         form['whereto'] if 'whereto' in form else '',
                         ', '.join(form.getlist('budget')) if 'budget' in form else '',
                     ),
-                    'myviewsolutions123@gmail.com',
+                    from_email,
                     emails
                 )
             if context['service'].form == 2:
                 send_mail(
-                    'Contato Site MyTrip - Do seu jeito',
+                    'MyTrip by Solid - Do seu jeito',
                     'Serviço: %s,\n\nNome: %s,\nEmail: %s,\nTelefone: %s,\n N de Passageiros: %s,\
                     \n Origem: %s,\n Destinos: %s,\n Data inicio: %s\
                     ,\n Data volta: %s,\n Flexibilidade início: %s,\n Flexibilidade volta: %s\
@@ -132,21 +135,20 @@ class ServicePageView(TemplateView):
                         form['special'] or '',
                         form['food'] or ''
                     ),
-                    'myviewsolutions123@gmail.com',
+                    from_email,
                     emails
                 )
             if context['service'].form == 3:
                 send_mail(
-                    'Contato Site MyTrip - Wedding',
+                    'MyTrip by Solid - Destination Wedding',
                     'Nome: %s,\nEmail: %s,\nTelefone: %s,\n Mensagem: %s' % (
                         form['name'],
                         form['email'],
                         form['phone'],
                         form['message'],
                     ),
-                    'myviewsolutions123@gmail.com',
-                    # ['marcoshenriqueb@gmail.com']
-                    ['contato@mytripviagens.com']
+                    from_email,
+                    emails
                 )
             messages.add_message(request, messages.INFO, 'Obrigado pelo contato, retornaremos em breve!')
         except Exception as e:
@@ -178,14 +180,14 @@ class CorporateView(TemplateView):
         form = request.POST
         try:
             send_mail(
-                'Contato Site MyTrip - Corporate',
+                'MyTrip by Solid - Corporate',
                 'Nome: %s,\nEmail: %s,\nTelefone: %s,\n Mensagem: %s' % (
                     form['name'],
                     form['email'],
                     form['phone'],
                     form['message'],
                 ),
-                'myviewsolutions123@gmail.com',
+                from_email,
                 emails
             )
             messages.add_message(request, messages.INFO, 'Obrigado pelo contato, retornaremos em breve!')
