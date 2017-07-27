@@ -1,5 +1,9 @@
 .paraxify {
-  background-attachment: fixed;
   background-position: center center;
   background-size: cover;
+}
+@media(min-width: 768px) {
+    .paraxify {
+        background-attachment: fixed;
+    }
 }
