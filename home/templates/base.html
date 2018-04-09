@@ -65,27 +65,12 @@
             <div class="pre-footer_item flex-column start">
             </div>
             <div class="pre-footer_item flex-column start">
+            </div>
+            <div class="pre-footer_item flex-column start">
                 <span class="light-label pre-footer_item_title">{{ content.titulo_contato_rodape }}</span>
                 <span class="light-text white"><span class="fa fa-map-marker"></span> {{ content.endereco_contato }}</span>
                 <span class="light-text white"><span class="fa fa-phone"></span> {{ content.telefone }}</span>
                 <span class="light-text white margin-b"><span class="fa fa-envelope-o"></span> {{ content.email }}</span>
-            </div>
-            {% load instagram_client %}
-
-            {% instagram_user_recent_media my_trip %}
-            <div class="pre-footer_item flex-column start">
-                <span class="light-label pre-footer_item_title">Instagram</span>
-                <div class="pre-footer_item_instagram_container full-w flex">
-                    {% for media in recent_media %}
-                    {% if forloop.counter <= 6 %}
-                    <div class="django_instagram_media_wall_item">
-                        <a href="https://www.instagram.com/p/{{ media.code }}/" target="_blank" title="{{ media.caption }}">
-                            <img src="{{ media.thumbnail_src|thumbnail }}"/>
-                        </a>
-                    </div>
-                    {% endif %}
-                    {% endfor %}
-                </div>
             </div>
         </div>
         <footer class="footer flex justify-center white">
