@@ -43,7 +43,7 @@
     "inputmask": "^3.3.7",
     "install": "^0.10.1",
     "normalize.css": "^7.0.0",
-    "npm": "^4.6.1",
+    "npm": "^6.14.6",
     "shufflejs": "^4.2.0"
   }
 }
